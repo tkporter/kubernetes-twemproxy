@@ -12,22 +12,22 @@ spec:
     spec:
       containers:
       - name: twemproxy
-        image: <twemproxy-image-url>
+        image: tkporter/twemproxy:latest
         imagePullPolicy: Always
         ports:
         - name: twemproxy
           containerPort: 22121
-        resources:
-          requests:
-            memory: 256Mi
-            cpu: 100m
-        volumeMounts:
-        - name: "twemproxy-conf"
-          mountPath: "/etc/twemproxy/conf"
-      volumes:
-        - name: "twemproxy-conf"
-          configMap:
-            name: "twemproxy-conf"
-            items:
-              - key: "twemproxy.yml"
-                path: "twemproxy.yml"
+      #   resources:
+      #     requests:
+      #       memory: 256Mi
+      #       cpu: 100m
+      #   volumeMounts:
+      #   - name: "twemproxy-conf"
+      #     mountPath: "/etc/twemproxy/conf"
+      # volumes:
+      #   - name: "twemproxy-conf"
+      #     configMap:
+      #       name: "twemproxy-conf"
+      #       items:
+      #         - key: "twemproxy.yml"
+      #           path: "twemproxy.yml"

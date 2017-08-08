@@ -8,6 +8,7 @@ RUN apk add --update g++ libtool make automake curl autoconf supervisor
 # copy files and create necessary folders
 RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY twemproxy.yaml /etc/twemproxy/conf/twemproxy.yaml
 
 # compile twemproxy
 RUN curl -qL https://github.com/twitter/twemproxy/archive/v0.4.1.tar.gz | tar xzf -
