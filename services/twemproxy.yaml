@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: twemproxy
   labels:
-    app: twemproxy
+    name: twemproxy
 spec:
   ports:
   - name: twemproxy
     port: 22121
     targetPort: twemproxy
   selector:
-    app: twemproxy
+    name: twemproxy
