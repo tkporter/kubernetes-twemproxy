@@ -5,6 +5,7 @@ metadata:
   labels:
     name: twemproxy
 spec:
+  replicas: 1
   template:
     metadata:
       labels:
