@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import argparse
 import os
 import requests
@@ -6,7 +8,7 @@ import urlparse
 
 DEFAULT_CRT_PATH = '/var/run/secrets/kubernetes.io/serviceaccount/ca.crt'
 DEFAULT_TOKEN_PATH = '/var/run/secrets/kubernetes.io/serviceaccount/token'
-DEFAULT_TEMPLATE_PATH = '/etc/twemproxy/conf/twemproxy.template'
+DEFAULT_TEMPLATE_PATH = '/twemproxy.template'
 DEFAULT_REDIS_PORT = 6379
 DEFAULT_LABEL_SELECTOR = {
     'name': 'redis-node'

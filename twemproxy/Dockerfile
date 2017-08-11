@@ -8,9 +8,11 @@ RUN pip install requests
 RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY twemproxy.yaml /etc/twemproxy/conf/twemproxy.yaml
-COPY config-monitor.sh /etc/twemproxy/conf/config-monitor.sh
-COPY create-config.py /etc/twemproxy/conf/create-config.py
-COPY twemproxy.template /etc/twemproxy/conf/twemproxy.template
+
+COPY run-twemproxy.sh /run-twemproxy.sh
+COPY config-monitor.sh /config-monitor.sh
+COPY create-config.py /create-config.py
+COPY twemproxy.template /twemproxy.template
 
 # compile twemproxy
 RUN curl -qL https://github.com/twitter/twemproxy/archive/v0.4.1.tar.gz | tar xzf -
@@ -20,5 +22,5 @@ RUN apk del g++ libtool make automake curl autoconf
 
 EXPOSE 22121
 
-CMD ["/etc/twemproxy/conf/config-monitor.sh", "/etc/twemproxy/conf/create-config.py"]
+CMD ["/config-monitor.sh", "/create-config.py"]
 # CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
