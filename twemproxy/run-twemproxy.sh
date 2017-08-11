@@ -1,5 +1,6 @@
 #!/bin/sh
-set -x
+
+/config-monitor.sh /create-config.py &
 
 while [ ! -f /twemproxy.yaml ]; do
     echo 'Waiting for twemproxy.yaml...'

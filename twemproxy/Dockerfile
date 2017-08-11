@@ -6,8 +6,6 @@ RUN pip install requests
 
 # copy files and create necessary folders
 RUN mkdir -p /var/log/supervisor
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY twemproxy.yaml /etc/twemproxy/conf/twemproxy.yaml
 
 COPY run-twemproxy.sh /run-twemproxy.sh
 COPY config-monitor.sh /config-monitor.sh
@@ -22,5 +20,4 @@ RUN apk del g++ libtool make automake curl autoconf
 
 EXPOSE 22121
 
-CMD ["/config-monitor.sh", "/create-config.py"]
-# CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+CMD ["/run-twemproxy.sh"]
